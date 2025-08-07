@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:hello_pokemon/app/modules/core/helpers/messages.dart';
+import 'package:hello_pokemon/app/modules/core/widgets/hello_pokemon_logo.dart';
 import 'package:hello_pokemon/app/modules/pokemon/controller/pokemon_detail_list_controller.dart';
 import 'package:hello_pokemon/app/modules/pokemon/widgets/pokemon_detail_item_widget.dart';
 
@@ -49,9 +50,15 @@ class _PokemonDetailListPageState extends State<PokemonDetailListPage>
       builder: (context, child) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Pokédex"),
+            title: HelloPokemonLogo(
+              size: 120,
+              textColor: Colors.white,
+              showSubtitle: false,
+            ),
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
+            toolbarHeight: 80,
+            centerTitle: true,
           ),
           body: RefreshIndicator(
             onRefresh: controller.refresh,
