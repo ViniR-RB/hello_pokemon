@@ -6,7 +6,7 @@ class RestClient extends DioForNative {
   RestClient()
     : super(
         BaseOptions(
-          baseUrl: ConfigEnviroment.apirUrl,
+          baseUrl: ConfigEnviroment.apiUrl,
           connectTimeout: const Duration(seconds: 10),
           receiveTimeout: const Duration(seconds: 10),
         ),
