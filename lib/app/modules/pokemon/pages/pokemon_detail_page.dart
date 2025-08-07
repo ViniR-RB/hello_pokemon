@@ -73,7 +73,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                 ),
               );
             }
-            return CustomLoader();
+            return Text("Procurando...");
           },
         ),
         centerTitle: true,
@@ -96,9 +96,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
               if (index < controller.pokemons.length) {
                 return _buildPokemonDetail(controller.pokemons[index]);
               } else if (controller.hasMore) {
-                return const Center(
-                  child: CircularProgressIndicator(color: Colors.white),
-                );
+                return CustomLoader();
               }
               return const SizedBox.shrink();
             },
@@ -258,7 +256,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
           Text(
             'Deslize para ver outros Pokémons',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withValues(alpha: 0.7),
               fontSize: 14,
             ),
           ),
