@@ -33,7 +33,6 @@ class PokemonRepositoryImpl implements IPokemonRepository {
   AsyncResult<AppException, List<PokemonDetailModel>>
   getPokemonListWithDetails({int offset = 20, int limit = 20}) async {
     try {
-      // Primeiro busca a lista básica
       final Response(:dynamic data) = await _restClient.get(
         "/pokemon?offset=$offset&limit=$limit",
       );
@@ -42,7 +41,6 @@ class PokemonRepositoryImpl implements IPokemonRepository {
           .map((data) => PokemonShortModel.fromMap(data))
           .toList();
 
-      // Para cada pokemon, busca os detalhes em paralelo para melhor performance
       final detailFutures = pokemonShortList
           .map((pokemon) => getPokemonDetail(pokemon.name))
           .toList();
@@ -56,10 +54,7 @@ class PokemonRepositoryImpl implements IPokemonRepository {
           onSuccess: (detail) {
             pokemonDetailList.add(detail);
           },
-          onFailure: (error) {
-            // Se falhar em buscar um detail individual, continua com os outros
-            // Você pode adicionar logging aqui se necessário
-          },
+          onFailure: (error) {},
         );
       }
 
