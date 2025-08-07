@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:hello_pokemon/app/app_module.dart';
@@ -10,9 +11,10 @@ import 'package:hello_pokemon/app/pages/error_page.dart';
 
 void main() {
   runZonedGuarded(
-    () {
+    () async {
       ConfigEnviroment.validate();
       WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
 
       FlutterError.onError = (FlutterErrorDetails details) {
         FlutterError.presentError(details);
