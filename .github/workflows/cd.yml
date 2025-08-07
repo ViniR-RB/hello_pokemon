@@ -32,6 +32,7 @@ jobs:
         run: |
           cat <<EOF > .env
           API_URL=$API_URL
+          EOF
 
       - uses: subosito/flutter-action@v2
         with:
