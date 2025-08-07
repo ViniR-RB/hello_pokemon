@@ -11,9 +11,8 @@ import 'package:hello_pokemon/app/pages/error_page.dart';
 void main() {
   runZonedGuarded(
     () {
+      ConfigEnviroment.validate();
       WidgetsFlutterBinding.ensureInitialized();
-
-      ConfigEnviroment.load();
 
       FlutterError.onError = (FlutterErrorDetails details) {
         FlutterError.presentError(details);
