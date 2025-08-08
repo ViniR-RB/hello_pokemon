@@ -24,7 +24,19 @@ void main() {
     },
     (error, stack) {
       log("Houve um erro inesperado", error: error, stackTrace: stack);
-      runApp(ErrorPage(errorMessage: error.toString(), stack: stack));
+      runApp(
+        ErrorPage(
+          errorMessage: error.toString(),
+          stack: stack,
+          onRestart: () => restartApp(),
+        ),
+      );
     },
   );
+}
+
+void restartApp() {
+  WidgetsBinding.instance.reassembleApplication();
+  log("Reiniciando o app");
+  main();
 }
