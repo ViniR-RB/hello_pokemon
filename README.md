@@ -8,8 +8,6 @@ Um aplica### Funcionalidades Demonstradas
 - ✅ **Carregamento otimizado** com indicadores visuais
 - ✅ **Tipagem de Pokémons** com cores categorizadas
 
-> **📸 Nota sobre Screenshots**: Para adicionar as screenshots reais, execute o app e capture as telas conforme instruções em `docs/screenshots/README.md`. As imagens devem ser salvas como PNG na pasta `docs/screenshots/`.
-
 ## 🛠️ Tecnologiaster moderno para explorar o mundo Pokémon com navegação horizontal, carregamento infinito e integração com Firebase.
 
 ## 📱 Características
